@@ -13,7 +13,8 @@
     "dev": "DEBUG=1 ts-node test.ts",
     "clean": "rm -rI dist/",
     "build": "tsc -p .",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepack": "yarn run build"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",
