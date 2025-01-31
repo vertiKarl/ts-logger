@@ -1,11 +1,19 @@
 {
-  "name": "ts-logger",
+  "name": "@vertikarl/ts-logger",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vertiKarl/ts-logger.git"
+  },
   "scripts": {
     "dev": "DEBUG=1 ts-node test.ts",
-    "build": "rm -rI dist/ && tsc -p ."
+    "build": "tsc -p .",
+    "prepack": "npm run build && cp -r dist/* .",
+    "prepare": "npm run build && cp -r dist/* ."
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",
