@@ -14,7 +14,7 @@
     "clean": "rm -rI dist/",
     "build": "tsc -p .",
     "prepare": "npm run build",
-    "prepack": "yarn run build"
+    "prepack": "yarn build"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",
