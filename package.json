@@ -11,9 +11,9 @@
   },
   "scripts": {
     "dev": "DEBUG=1 ts-node test.ts",
-    "build": "tsc -p tsconfig.json --traceResolution",
-    "prepack": "npm run build",
-    "prepare": "npm run build"
+    "build": "tsc -p .",
+    "prepack": "npm run build && cp -r dist/* .",
+    "prepare": "npm run build && cp -r dist/* ."
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",
