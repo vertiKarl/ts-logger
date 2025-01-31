@@ -11,9 +11,9 @@
   },
   "scripts": {
     "dev": "DEBUG=1 ts-node test.ts",
-    "clean": "rm -rI dist/",
     "build": "tsc -p tsconfig.json",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",
