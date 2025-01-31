@@ -12,9 +12,8 @@
   "scripts": {
     "dev": "DEBUG=1 ts-node test.ts",
     "clean": "rm -rI dist/",
-    "build": "tsc",
-    "prepare": "npm run build",
-    "prepack": "yarn build"
+    "build": "tsc -p .",
+    "prepack": "node ./scripts/prepack.js"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.8",
