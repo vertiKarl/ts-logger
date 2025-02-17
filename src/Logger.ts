@@ -40,8 +40,8 @@ function convertToString(data: any): string {
 export default class Logger {
   constructor(
     private emoji: string,
-    private logLevel: number = DEFAULT,
-    private toFile = false
+    private toFile = false,
+    private logLevel: number = DEFAULT
   ) {
     if (Number(process.env.DEBUG as String) === 1) {
       this.logLevel |= DEBUG;
