@@ -30,17 +30,19 @@ function convertToString(data: any): string {
   );
 }
 
+// Generate tsDoc comment for Logger class
 /**
- * An abstract class to let most classes
- * inherit from. It enables objects to
- * log to console with specified formatting.
- * All logged errors get saved to the log file
- * as well.
+ * Logger class for logging messages pretty and optionally to a file.
+ * @param emoji emoji to use for logging messages
+ * @param logLevel the level of logging to use
+ * @param toFile whether to log to a file or not
  */
-export default abstract class Logger {
-  abstract emoji: string;
-
-  constructor(private logLevel: number = DEFAULT) {
+export default class Logger {
+  constructor(
+    private emoji: string,
+    private logLevel: number = DEFAULT,
+    private toFile = false
+  ) {
     if (Number(process.env.DEBUG as String) === 1) {
       this.logLevel |= DEBUG;
     }
@@ -56,9 +58,10 @@ export default abstract class Logger {
    * @param data content to log to file
    */
   private async log2file(...data: any): Promise<void> {
-    fs.appendFileSync("./latest.log", convertToString(data) + "\n", {
-      encoding: "utf-8",
-    });
+    if (this.toFile)
+      fs.appendFileSync("./latest.log", convertToString(data) + "\n", {
+        encoding: "utf-8",
+      });
   }
 
   /**
